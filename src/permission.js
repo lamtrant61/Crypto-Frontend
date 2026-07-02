@@ -1,0 +1,59 @@
+import router from './router'
+import store from './store'
+import { Message } from 'element-ui'
+import NProgress from 'nprogress' // progress bar
+import 'nprogress/nprogress.css' // progress bar style
+import { getToken, setAcountInfo } from '@/utils/auth' // get token from cookie
+import getPageTitle from '@/utils/get-page-title'
+NProgress.configure({ showSpinner: false }) // NProgress Configuration
+
+const whiteList = ['/login', '/register', '/auth-redirect'] // no redirect whitelist
+
+router.beforeEach(async(to, from, next) => {
+  NProgress.start()
+  document.title = getPageTitle(to.meta.title)
+  const hasToken = getToken()
+
+  if (hasToken) {
+    if (to.path === '/login' || to.path === '/register') {
+      next({ path: '/dashboard' })
+      NProgress.done() // hack: https://github.com/PanJiaChen/vue-element-admin/pull/2939
+    } else {
+      const hasRoles = store.getters.roles && store.getters.roles.length > 0
+      if (hasRoles) {
+        next()
+      } else {
+        try {
+          const user_info = await store.dispatch('user/getInfo')
+          await setAcountInfo(user_info)
+          const roles = [user_info.role_id]
+
+          const accessRoutes = await store.dispatch('permission/generateRoutes', roles)
+
+          if (roles.length === 0) {
+            NProgress.done()
+            Message.error('Tài khoản không có roles')
+          } else {
+            router.addRoutes(accessRoutes)
+            next({ ...to, replace: true })
+          }
+        } catch (error) {
+          await store.dispatch('user/resetToken')
+          Message.error(error || 'Has Error')
+          next(`/login?redirect=${to.path}`)
+          NProgress.done()
+        }
+      }
+    }
+  } else {
+    if (whiteList.indexOf(to.path) !== -1) {
+      next()
+    } else {
+      next(`/login?redirect=${to.path}`)
+      NProgress.done()
+    }
+  }
+})
+router.afterEach(() => {
+  NProgress.done()
+})

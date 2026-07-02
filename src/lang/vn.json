@@ -1,0 +1,75 @@
+{
+  "trans": "Dịch",
+  "username": "Tên đăng nhập",
+  "password": "Mật khẩu",
+  "login": "Đăng nhập",
+  "logout": "Đăng xuất",
+  "register": "Đăng ký",
+  "email": "Email",
+  "name": "Tên",
+  "password_confirmation": "Xác nhận mật khẩu",
+  "forgot_password": "Quên mật khẩu",
+  "reset_password": "Đặt lại mật khẩu",
+  "password_not_match": "Nhập lại mật khẩu không chính xác",
+  "error_predict": "Không thể lấy dữ liệu dự báo",
+  "error_data": "Không tìm thấy dữ liệu",
+  "error_simulator": "Không đủ dữ liệu để giả lập",
+  "start_interval_simulator": "Bắt đầu giả lập ngày",
+  "stop_interval_simulator": "Kết thúc giả lập ngày",
+
+  "price": "Giá trị",
+  "volume": "Thanh khoản",
+  "asc": "Tăng dần",
+  "desc": "Giảm dần",
+  "search": "Tìm kiếm",
+  "save": "Lưu",
+  "remove": "Xóa",
+
+  "list_coin": "Danh sách",
+  "input_to_search": "Nhập để tìm kiếm",
+
+  "code": "Mã",
+  "high_price": "Giá cao nhất",
+  "low_price": "Giá thấp nhất",
+  "high_date": "Ngày giá cao",
+  "low_date": "Ngày giá thấp",
+  "update_time": "Thời gian cập nhật",
+
+  "detail": "Chi tiết",
+  "website": "Website",
+  "binance": "Binance",
+
+  "balance": "Số dư",
+  "total_coin": "Số coin",
+  "simulator": "Giả lập giao dịch",
+  "technical_analysis": "Phân tích kỹ thuật",
+  "select_coin": "Chọn mã",
+
+  "show_chart": "Biểu đồ",
+  "technical_chart": "Biểu đồ phân tích kỹ thuật",
+
+  "change_24h": "Thay đổi 24h",
+  "change_7d": "Thay đổi 7d",
+  "change_1m": "Thay đổi 1m",
+
+  "binance_announcement": "Thông báo Binance",
+  "copy_trading": "Sao chép giao dịch",
+  "markets_overview": "Tổng quan thị trường",
+  "cash_flow": "Dòng tiền",
+
+  "invest_cash_flow": "Dòng tiền đầu tư",
+  "buy_maker_big": "Lệnh bán lớn",
+  "buy_maker_medium": "Lệnh bán trung bình",
+  "buy_maker_small": "Lệnh bán nhỏ",
+  "buy_taker_big": "Lệnh mua lớn",
+  "buy_taker_medium": "Lệnh mua trung bình",
+  "buy_taker_small": "Lệnh mua nhỏ",
+  
+  "buy": "Mua",
+  "sell": "Bán",
+  "quantity_buy": "Số lượng mua",
+  "quantity_sell": "Số lượng bán",
+  "money_amount": "Giá tiền",
+  "transaction_history": "Lịch sử giao dịch"
+
+}
